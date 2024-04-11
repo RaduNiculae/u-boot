@@ -561,6 +561,12 @@
 		BOOTENV_SET_EXTENSION_NEED_INIT                           \
 		"for target in ${boot_targets}; do "                      \
 			"run bootcmd_${target}; "                         \
-		"done\0"
+		"done\0"	\
+	\
+	"boot_unikraft=" \
+		"run distro_bootcmd;" \
+		"load scsi 0:0 0x60000000 helloworld;" \
+		"go 0x60001000;" \
+		"\0"
 
 #endif  /* _CONFIG_CMD_DISTRO_BOOTCMD_H */
